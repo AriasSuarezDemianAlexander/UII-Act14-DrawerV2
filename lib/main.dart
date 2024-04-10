@@ -1,43 +1,44 @@
+import 'package:ariasdrawer2/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:ariasdrawer2/movies.dart';
+import 'package:ariasdrawer2/spacearound.dart';
+import 'package:ariasdrawer2/spacebetween.dart';
+import 'package:ariasdrawer2/stretch.dart';
+import 'contact.dart';
+import 'inicio.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  static const String inicio = Inicio.routeName;
+  static const String profile = Profile.routeName;
+  static const String movies = Movies.routeName;
+  static const String contacts = Contact.routeName;
+  static const String spacea = SpaceA.routeName;
+  static const String spaceb = SpaceB.routeName;
+  static const String estirar = Estirar.routeName;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      title: 'Ejemplo Drawer Menu 0315',
       theme: ThemeData(
-        // useMaterial3: false,
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      routes: {
+        inicio: (context) => Inicio(),
+        profile: (context) => Profile(),
+        movies: (context) => Movies(),
+        contacts: (context) => Contact(),
+        spacea: (context) => SpaceA(),
+        spaceb: (context) => SpaceB(),
+        estirar: (context) => Estirar(),
+      },
+      home: Inicio(),
     );
   }
 }
